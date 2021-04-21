@@ -1,37 +1,51 @@
-import React from 'react';
-import burclass from './BurgerIngerdient.module.css';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+import classes from './BurgerIngredient.module.css';
 
 
-const burgerIngredient = (props) => {
+class BurgerIngredient extends Component {
+    render() {
     let ingredient = null;
-    switch (props.type) {
+    switch (this.props.type) {
         case ('bread-bottom'):
-            ingredient = <div className={burclass.BreadBottom} ></div>
+            ingredient = <div className={classes.BreadBottom} ></div>
             break;
         case('bread-top'):
-            ingredient = <div className={burclass.BreadTop} >
-                <div className={burclass.Seeds1}></div>
-                <div className={burclass.Seeds2}></div>
+            ingredient = <div className={classes.BreadTop} >
+                <div className={classes.Seeds1}></div>
+                <div className={classes.Seeds2}></div>
             </div>
             break;
         case('meat'):
-            ingredient = <div className={burclass.Meat} >          
+            ingredient = <div className={classes.Meat} >          
             </div>
             break;
         case('cheese'):
-            ingredient = <div className={burclass.Cheese} >          
+            ingredient = <div className={classes.Cheese} >          
             </div>
             break;
         case('bacon'):
-            ingredient = <div className={burclass.Bacon} >          
+            ingredient = <div className={classes.Bacon} >          
             </div>
             break;
         case('salad'):
-            ingredient = <div className={burclass.Salad} >          
+            ingredient = <div className={classes.Salad} >          
             </div>
             break;
-        default: null;
+        default: 
+            ingredient = null;
     }
+
+    return ingredient;
+
+    }
+    
+    
 };
 
-export default burgerIngredient;
+BurgerIngredient.propTypes = {
+    type: PropTypes.string.isRequired
+}
+
+export default BurgerIngredient;
