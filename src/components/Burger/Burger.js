@@ -1,4 +1,4 @@
-import { object } from 'prop-types'
+
 import React from 'react'
 
 import classes from './Burger.module.css'
