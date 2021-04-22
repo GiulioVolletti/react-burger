@@ -9,9 +9,9 @@ class App extends Component {
   render(){
     return (
       <div >
-        <header className="App-header">
+        <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />        
-        </header>
+        </div>
         <Layout>
         <BurgerBuilder />
         </Layout>
