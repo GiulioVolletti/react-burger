@@ -4,15 +4,15 @@ import classes from './BuildControls.module.css'
 import BuildControl from './BuildControl/BuildControl'
 
 const controls = [
-    {label: 'Salad', type:'salad'},
+    {label: 'Insalata', type:'insalata'},
     {label: 'Bacon', type:'bacon'},
-    {label: 'Cheese', type:'cheese'},
-    {label: 'Meat', type:'meat'},
+    {label: 'Formaggio', type:'formaggio'},
+    {label: 'Carne', type:'carne'},
 ];
 
 const buildControls = (props) => (
     <div className={classes.BuildControls}>
-        <p>Current price: <strong>{props.price.toFixed(2)}</strong></p>
+        <p>Prezzo Totale: <strong>{props.price.toFixed(2)}</strong></p>
         { controls.map(element =>(
             <BuildControl 
                 key={element.label} 
@@ -27,7 +27,7 @@ const buildControls = (props) => (
             className={classes.OrderButton} 
             disabled={!props.purchasable}
             onClick={props.ordered}
-        >Order Now</button>
+        >Ordina</button>
     </div>
 );
 

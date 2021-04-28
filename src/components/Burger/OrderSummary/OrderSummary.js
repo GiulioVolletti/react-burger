@@ -7,7 +7,7 @@ import Button from '../../UI/Button/Button'
 class OrderSummary extends Component {
     //debug non necessita classe 
     componentDidUpdate(){
-        console.log('update')
+       // console.log('update')
     }
     
     render (){
@@ -20,16 +20,16 @@ class OrderSummary extends Component {
         });
         return (
                <Aux>
-                    <h3> Your Order </h3>
-                    <p>A delicious burger</p>
+                    <h3> Il Tuo Ordine </h3>
+                    <p>Un delizioso hamburger</p>
 
                     <ul>
                         {ingredientSummary}
                     </ul>
-                    <p><strong>Total Price:</strong> {this.props.price.toFixed(2)}</p>
-                    <p>Continue with ceckout?</p>
-                    <Button btnType='Danger' clicked={this.props.purchaseCancelled}>Cancel</Button>
-                    <Button btnType='Success' clicked={this.props.purchaseContinue}>Continue</Button>
+                    <p><strong>Prezzo Totale:</strong> {this.props.price.toFixed(2)}</p>
+                    <p>Procedere con l'acquisto?</p>
+                    <Button btnType='Danger' clicked={this.props.purchaseCancelled}>Cancella</Button>
+                    <Button btnType='Success' clicked={this.props.purchaseContinue}>Continua</Button>
                 </Aux>
             )
 
