@@ -12,15 +12,13 @@ class Checkout extends Component{
         ingredients: null,
         price: 0,
         loading: false,
-        customer: {
-            name:'giulio',
-            adress: {
-                street: 'strada-test',
-                city: 'Roma',
-                country: 'Italia'
-            }
-        }    
+        name:'giulio',
+        street: 'strada-test',
+        city: 'Roma',
+        country: 'Italia'
+                
     }
+   
     //mounted
     componentDidMount (){
         const query = new URLSearchParams(this.props.location.search)
@@ -43,18 +41,45 @@ class Checkout extends Component{
         const order = {
             ingredienti: this.state.ingredients,
             ammontare: this.state.price,
-            customer: this.state.customer
+            customer: {
+                name: this.state.name,
+                adress: {
+                    street: this.state.street,
+                    city: this.state.city,
+                    country:  this.state.country
+                }
+            }
         }
         axios.post('/ordini.json', order)
         .then(response =>  this.setState({loading: false}) )
     }
+    handleNameChange = (e) => {
+        //console.log(e.target.value);    
+        this.setState({name: e.target.value} );
+    }
+
+    handleStreetChange = (e) => {  
+        this.setState(  {street:e.target.value} );
+    }
+    handleCityChange = (e) => {        
+        this.setState( {city:e.target.value} );
+    }
+    handleCountryChange = (e) => {        
+        this.setState( {country:e.target.value});
+    }
 
     //render
     render(){
+        /**/
         let form = (
             <div className={classes.Forminner}>
                 <h1 >{this.state.price}</h1>
-                <FormItem type='text' />
+                <FormItem change={this.handleNameChange} type='text' nameinput='Nome Utente'/>
+                <FormItem change={this.handleCountryChange} type='text' nameinput='Nazione' />               
+                <FormItem change={this.handleCityChange} type='text' nameinput='Citta' />
+                <FormItem change={this.handleStreetChange} type='text'  nameinput='Indirizzo'/>
+            
+                
                 <Button btnType='Success' clicked={this.orderHandlere}>Ordina</Button>
             </div>   
         );

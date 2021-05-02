@@ -7,7 +7,13 @@ class FormItem extends Component {
         let formItem = null;
         switch (this.props.type) {
             case ('text'):
-               formItem = <input type='text' ></input>
+               formItem = (
+                   <div>
+                       <label>{this.props.nameinput}</label>
+                        <input onChange={this.props.change} type='text' ></input>
+                   </div>
+                    
+                    )
                 break;
         
             default:
