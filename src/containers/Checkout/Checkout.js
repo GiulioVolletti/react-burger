@@ -51,7 +51,11 @@ class Checkout extends Component{
             }
         }
         axios.post('/ordini.json', order)
-        .then(response =>  this.setState({loading: false}) )
+        .then(response =>  {
+            this.setState({loading: false}) 
+            this.props.history.push({
+            pathname: '/',           
+        })})
     }
     handleNameChange = (e) => {
         //console.log(e.target.value);    
