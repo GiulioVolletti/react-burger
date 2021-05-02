@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import logo from './assets/logo.svg';
 import './App.css';
+import {Route , Switch} from 'react-router-dom';
 
-import Layout from './hoc/Layout/Layout'
-import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
+import Layout from './hoc/Layout/Layout';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+import Checkout from './containers/Checkout/Checkout'
 
 class App extends Component {
   render(){
@@ -13,7 +15,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />        
         </div>
         <Layout>
-        <BurgerBuilder />
+          <Switch>           
+            <Route path='/checkout' component={Checkout} />
+            <Route path='/' exact component={BurgerBuilder} />
+          </Switch>
+        
         </Layout>
        
       </div>
