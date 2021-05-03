@@ -9,3 +9,11 @@
 .Forminner {
     text-align: center;
 }
+.FormEmpy {
+    display: flex;
+    height: 80vh;    
+   
+    margin: auto; 
+    justify-content: center;
+    align-items: center;
+}

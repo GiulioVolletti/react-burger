@@ -75,9 +75,10 @@ class Checkout extends Component{
     //render
     render(){
         /**/
+        
         let form = (
             <div className={classes.Forminner}>
-                <h1 >{this.state.price}</h1>
+                  <h1 >{this.state.price}</h1> 
                 <FormItem change={this.handleNameChange} type='text' nameinput='Nome Utente'/>
                 <FormItem change={this.handleCountryChange} type='text' nameinput='Nazione' />               
                 <FormItem change={this.handleCityChange} type='text' nameinput='Citta' />
@@ -87,6 +88,7 @@ class Checkout extends Component{
                 <Button btnType='Success' clicked={this.orderHandlere}>Ordina</Button>
             </div>   
         );
+        let formToMake = ( <div className={classes.FormEmpy}> <h3 >Carrello Vuoto</h3> </div> )
         if(this.state.loading){
             form = <Spinner/>
         }
@@ -94,7 +96,7 @@ class Checkout extends Component{
         return(
             <Aux >
                 <div className={classes.Form}>                               
-                   {form}
+                   {this.state.price !== 0 ? form : formToMake}
                 </div>
                 
             </Aux>
